@@ -6,7 +6,7 @@ const NavigationBar = () => {
 
     const navigate = useNavigate()
 
-    const [lang, setLang] = useState("th")
+    const [lang, setLang] = useState("en")
 
     useEffect(() => {
 
@@ -18,10 +18,12 @@ const NavigationBar = () => {
 
     const styles = {
         button: {
-            paddingLeft: 4,
-            paddingRight: 4,
-            paddingTop: 4,
-            paddingBottom: 4,
+            paddingLeft: 2,
+            paddingRight: 2,
+            paddingTop: 2,
+            paddingBottom: 2,
+            marginLeft: 1,
+            marginRight: 1,
             textTransform: "initial"
         }
     }
@@ -33,7 +35,7 @@ const NavigationBar = () => {
                     <Box display={"flex"} flex={1} width={"100%"} height={80} justifyContent={"flex-end"} alignItems={"center"} >
                         <Button color="inherit" sx={styles.button} onClick={() => navigate("/")}>Home</Button>
                         <Button color="inherit" sx={styles.button} onClick={() => navigate("/AboutMePage")}>About Me</Button>
-                        <Button color="inherit" sx={styles.button} onClick={() => navigate("/WorksPage")}>My Works</Button>
+                        <Button color="inherit" sx={styles.button} onClick={() => navigate("/WorksPage")}>Projects</Button>
                         <Box sx={{ minWidth: 80, marginLeft: 4, marginRight: 4 }}>
                             <FormControl fullWidth>
                                 <InputLabel id="demo-simple-select-label">Language</InputLabel>
@@ -44,8 +46,8 @@ const NavigationBar = () => {
                                     label="Language"
                                     onChange={handleChangeLanguage}
                                 >
-                                    <MenuItem value={"th"}>TH</MenuItem>
                                     <MenuItem value={"en"}>EN</MenuItem>
+                                    <MenuItem value={"th"}>TH</MenuItem>
                                 </Select>
                             </FormControl>
                         </Box>
@@ -56,8 +58,8 @@ const NavigationBar = () => {
                 </Grid>
                 <Grid item>
                     <Box component={'footer'} display={'flex'} flexDirection={'column'} alignItems={'center'}
-                        py={'1.5rem'} sx={{ opacity: 0.7 }} width={'100%'}>
-                        <p>template created with &hearts; by <a href={'https://paytonpierce.dev'}>Payton Pierce</a></p>
+                        py={'1rem'} sx={{ opacity: 0.7 }} width={'100%'}>
+                        <p>Wirayut Chuensaen</p>
                         <p>&copy; 2022</p>
                     </Box>
                 </Grid>
