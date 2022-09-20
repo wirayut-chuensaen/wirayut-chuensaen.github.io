@@ -36,7 +36,7 @@ const NavigationBar = () => {
                         <Button color="inherit" sx={styles.button} onClick={() => navigate("/")}>Home</Button>
                         <Button color="inherit" sx={styles.button} onClick={() => navigate("/AboutMePage")}>About Me</Button>
                         <Button color="inherit" sx={styles.button} onClick={() => navigate("/WorksPage")}>Projects</Button>
-                        <Box sx={{ minWidth: 80, marginLeft: 4, marginRight: 4 }}>
+                        <Box sx={{ minWidth: 80, marginLeft: 1, marginRight: 1 }}>
                             <FormControl fullWidth>
                                 <InputLabel id="demo-simple-select-label">Language</InputLabel>
                                 <Select
