@@ -1,19 +1,37 @@
-import React, { useState, useEffect } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import React, { useEffect, useContext } from "react";
+import { AppContext } from "../Contexts/AppContext";
+import { Outlet, Link } from "react-router-dom";
 import { Box, Grid, Button, FormControl, InputLabel, Select, MenuItem } from "@mui/material";
+import i18n from "../I18n/I18n";
 
 const NavigationBar = () => {
 
-    const navigate = useNavigate()
+    const { localeState, onChangeLocale } = useContext(AppContext)
 
-    const [lang, setLang] = useState("en")
+    const navLinks = [
+        {
+            name_en: "Home",
+            name_th: "หน้าหลัก",
+            to: "/"
+        },
+        {
+            name_en: "About Me",
+            name_th: "เกี่ยวกับ",
+            to: "/AboutMePage"
+        },
+        {
+            name_en: "Projects",
+            name_th: "โปรเจค",
+            to: "/WorksPage"
+        }
+    ]
 
     useEffect(() => {
 
     }, [])
 
     const handleChangeLanguage = (event) => {
-        setLang(event.target.value)
+        onChangeLocale(event.target.value)
     }
 
     const styles = {
@@ -33,16 +51,18 @@ const NavigationBar = () => {
             <Grid container display={'flex'} flexDirection={'column'} minHeight={'100vh'} justifyContent={'space-between'}>
                 <Grid item>
                     <Box display={"flex"} flex={1} width={"100%"} height={80} justifyContent={"flex-end"} alignItems={"center"} >
-                        <Button color="inherit" sx={styles.button} onClick={() => navigate("/")}>Home</Button>
-                        <Button color="inherit" sx={styles.button} onClick={() => navigate("/AboutMePage")}>About Me</Button>
-                        <Button color="inherit" sx={styles.button} onClick={() => navigate("/WorksPage")}>Projects</Button>
+                        {
+                            navLinks.map((item, index) => (
+                                <Button key={index} variant="text" color="inherit" component={Link} to={item.to} sx={styles.button}>{item[`name_${localeState}`]}</Button>
+                            ))
+                        }
                         <Box sx={{ minWidth: 80, marginLeft: 1, marginRight: 1 }}>
                             <FormControl fullWidth>
-                                <InputLabel id="demo-simple-select-label">Language</InputLabel>
+                                <InputLabel id="demo-simple-select-label">{i18n.t("language")}</InputLabel>
                                 <Select
                                     labelId="demo-simple-select-label"
                                     id="demo-simple-select"
-                                    value={lang}
+                                    value={localeState}
                                     label="Language"
                                     onChange={handleChangeLanguage}
                                 >
