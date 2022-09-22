@@ -1,6 +1,10 @@
 import React, { useEffect, useContext } from "react";
 import { AppContext } from "../Contexts/AppContext";
-import { Outlet, Link } from "react-router-dom";
+import { Route, Routes, Link } from "react-router-dom";
+import MainPage from "./MainPage";
+import AboutMePage from "./AboutMePage";
+import WorksPage from "./WorksPage";
+import WorksDetailPage from "./WorksDetailPage";
 import { Box, Grid, Button, FormControl, InputLabel, Select, MenuItem } from "@mui/material";
 import i18n from "../I18n/I18n";
 
@@ -42,7 +46,8 @@ const NavigationBar = () => {
             paddingBottom: 2,
             marginLeft: 1,
             marginRight: 1,
-            textTransform: "initial"
+            textTransform: "initial",
+            fontFamily: "IBM Plex Sans Thai"
         }
     }
 
@@ -56,7 +61,7 @@ const NavigationBar = () => {
                                 <Button key={index} variant="text" color="inherit" component={Link} to={item.to} sx={styles.button}>{item[`name_${localeState}`]}</Button>
                             ))
                         }
-                        <Box sx={{ minWidth: 80, marginLeft: 1, marginRight: 1 }}>
+                        <Box sx={{ m: 1, marginLeft: 1, marginRight: 1 }}>
                             <FormControl fullWidth>
                                 <InputLabel id="demo-simple-select-label">{i18n.t("language")}</InputLabel>
                                 <Select
@@ -74,7 +79,12 @@ const NavigationBar = () => {
                     </Box>
                 </Grid>
                 <Grid item flexGrow={1}>
-                    <Outlet />
+                    <Routes>
+                        <Route exact path="/" element={<MainPage />} />
+                        <Route exact path="AboutMePage" element={<AboutMePage />} />
+                        <Route exact path="WorksPage" element={<WorksPage />} />
+                        <Route exact path="WorksDetailPage" element={<WorksDetailPage />} />
+                    </Routes>
                 </Grid>
                 <Grid item>
                     <Box component={'footer'} display={'flex'} flexDirection={'column'} alignItems={'center'}

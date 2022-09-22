@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Box } from "@mui/material";
 import { info } from '../Info/MyInfo'
 import { InfoList, SocialList } from '../Components'
+import i18n from '../I18n/I18n';
+import { AppContext } from '../Contexts/AppContext';
 
 export default function MainPage() {
+
+	const { localeState } = useContext(AppContext)
+
 	return (
 		<Box component={'main'} display={'flex'} flexDirection={{ xs: 'column', md: 'row' }} alignItems={'center'}
 			justifyContent={'center'} minHeight={'calc(100vh - 175px)'}>
@@ -18,7 +23,7 @@ export default function MainPage() {
 							fontSize: "3rem",
 						}
 					}}>
-						Hi, I'm {info.first_name} {info.last_name}
+						{info[`first_name_${localeState}`]} {info[`last_name_${localeState}`]}
 					</h1>
 					<h2 style={{
 						fontSize: "1.25rem",
@@ -26,13 +31,13 @@ export default function MainPage() {
 							fontSize: "2rem",
 						}
 					}}>
-						I'm {info.position}.
+						{i18n.t("im")} {info.position}.
 					</h2>
 				</Box>
 				<Box component={'ul'} p={'0.8rem'}>
 					{
 						info.miniBio.map((item, index) => (
-							<InfoList key={index} emoji={item.emoji} text={item.text} />
+							<InfoList key={index} emoji={item.emoji} text={item[`text_${localeState}`]} />
 						))
 					}
 				</Box>
