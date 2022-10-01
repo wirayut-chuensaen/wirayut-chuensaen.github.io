@@ -12,7 +12,7 @@ export default function MainPage() {
 	return (
 		<Box component={'main'} display={'flex'} flexDirection={{ xs: 'column', md: 'row' }} alignItems={'center'}
 			justifyContent={'center'} minHeight={'calc(100vh - 175px)'}>
-			<Box alt={'dev_img'} component={'img'} src={require("../Assets/Images/1647aa148a3880354bbe07d8c02de8c9.jpg")} width={{ xs: '35vh', md: '40vh' }}
+			<Box alt={'dev_img'} component={'img'} src={require("../Assets/Images/avatar.jpg")} width={{ xs: '35vh', md: '40vh' }}
 				height={{ xs: '35vh', md: '40vh' }}
 				borderRadius={'50%'} p={'0.75rem'} mb={{ xs: '1rem', sm: 0 }} mr={{ xs: 0, md: '2rem' }} />
 			<Box>
