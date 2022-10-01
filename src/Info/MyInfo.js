@@ -23,12 +23,12 @@ export const info = {
     ],
     socials: [
         {
-            link: "https://github.com/wirayut-chuensaen/",
+            link: "https://github.com/wirayut-chuensaen",
             type: "github",
             label: 'Github'
         },
         {
-            link: "https://www.linkedin.com/in/neostormz/",
+            link: "https://www.linkedin.com/in/neostormz",
             type: "linkedin",
             label: 'Linkedin'
         },
