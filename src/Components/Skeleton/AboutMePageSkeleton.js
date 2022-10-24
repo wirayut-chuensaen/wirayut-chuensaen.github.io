@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Skeleton } from "@mui/material";
 
-export default function MainPageSkeleton() {
+export default function AboutMePageSkeleton() {
     return (
         <Box component={'main'} display={'flex'} flexDirection={{ xs: 'column', md: 'row' }} alignItems={'center'}
             justifyContent={'center'} minHeight={'calc(100vh - 175px)'}>

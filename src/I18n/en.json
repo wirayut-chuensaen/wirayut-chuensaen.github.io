@@ -1,4 +1,17 @@
 {
     "language": "Language",
-    "im": "I'm"
+    "im": "I'm",
+    "personal_info": "Personal Information",
+    "name": "Name",
+    "nick_name": "Nickname",
+    "gender": "Gender",
+    "date_birth": "Date of Birth",
+    "age": "Age",
+    "years_old": "",
+    "nationality": "Nationality",
+    "address": "Address",
+    "edu": "Education",
+    "experience": "Experience",
+    "skills": "Skills",
+    "contact": "Contact"
 }

@@ -1,12 +1,13 @@
-import React, { useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { AppContext } from "../Contexts/AppContext";
 import { Outlet, Link } from "react-router-dom";
 import { Box, Grid, Button, FormControl, InputLabel, Select, MenuItem } from "@mui/material";
-import i18n from "../I18n/I18n";
+import { useTranslation } from "react-i18next";
 
 const NavigationBar = () => {
 
     const { localeState, onChangeLocale } = useContext(AppContext)
+    const { t } = useTranslation();
 
     const navLinks = [
         {
@@ -15,8 +16,8 @@ const NavigationBar = () => {
             to: "/"
         },
         {
-            name_en: "About Me",
-            name_th: "เกี่ยวกับ",
+            name_en: "Profile",
+            name_th: "โปรไฟล์",
             to: "/AboutMePage"
         },
         {
@@ -25,10 +26,6 @@ const NavigationBar = () => {
             to: "/WorksPage"
         }
     ]
-
-    useEffect(() => {
-
-    }, [])
 
     const handleChangeLanguage = (event) => {
         onChangeLocale(event.target.value)
@@ -43,7 +40,9 @@ const NavigationBar = () => {
             marginLeft: 1,
             marginRight: 1,
             textTransform: "initial",
-            fontFamily: "IBM Plex Sans Thai"
+            fontFamily: "IBM Plex Sans Thai",
+            fontSize: "0.9rem",
+            // fontWeight: "bold"
         }
     }
 
@@ -51,7 +50,7 @@ const NavigationBar = () => {
         <Box sx={{ backgroundColor: "white" }}>
             <Grid container display={'flex'} flexDirection={'column'} minHeight={'100vh'} justifyContent={'space-between'}>
                 <Grid item>
-                    <Box display={"flex"} flex={1} width={"100%"} height={80} justifyContent={"flex-end"} alignItems={"center"} >
+                    <Box display={"flex"} flex={1} width={"100%"} height={80} justifyContent={"flex-end"} alignItems={"center"}>
                         {
                             navLinks.map((item, index) => (
                                 <Button key={index} variant="text" color="inherit" component={Link} to={item.to} sx={styles.button}>{item[`name_${localeState}`]}</Button>
@@ -59,7 +58,7 @@ const NavigationBar = () => {
                         }
                         <Box sx={{ m: 1, marginLeft: 1, marginRight: 1 }}>
                             <FormControl fullWidth>
-                                <InputLabel id="demo-simple-select-label">{i18n.t("language")}</InputLabel>
+                                <InputLabel id="demo-simple-select-label">{t("language")}</InputLabel>
                                 <Select
                                     labelId="demo-simple-select-label"
                                     id="demo-simple-select"

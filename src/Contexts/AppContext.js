@@ -8,7 +8,8 @@ export const AppProvider = ({ children }) => {
 
     const [localeState, setLocaleState] = useState("")
     const [isLoading, setIsLoading] = useState(false)
-    const [appData, setAppData] = useState({})
+    const [myInfo, setMyInfo] = useState({})
+    const [profile, setProfile] = useState({})
 
     useEffect(() => {
         initLocale()
@@ -37,17 +38,26 @@ export const AppProvider = ({ children }) => {
     const getAppData = async () => {
         setIsLoading(true)
         try {
-            const querySnapshot = await getDocs(collection(db, "myInfo"))
-            if (!querySnapshot.empty) {
-                querySnapshot.forEach((doc) => {
+            const querySnapshotMyInfo = await getDocs(collection(db, "myInfo"))
+            if (!querySnapshotMyInfo.empty) {
+                querySnapshotMyInfo.forEach((doc) => {
                     const snapshotData = JSON.stringify(doc.data())
                     const snapshotParsed = JSON.parse(snapshotData)
                     // console.log("getAppData : ", snapshotParsed)
-                    setAppData(snapshotParsed)
+                    setMyInfo(snapshotParsed)
+                });
+            }
+            const querySnapshotProfile = await getDocs(collection(db, "myInfo_full"))
+            if (!querySnapshotProfile.empty) {
+                querySnapshotProfile.forEach((doc) => {
+                    const snapshotData = JSON.stringify(doc.data())
+                    const snapshotParsed = JSON.parse(snapshotData)
+                    console.log("getProfile : ", snapshotParsed)
+                    setProfile(snapshotParsed)
                 });
             }
         } catch (e) {
-            console.error("Error getAppData : ", e);
+            console.error("Error getMyInfo : ", e);
         } finally {
             setTimeout(() => setIsLoading(false), 500)
         }
@@ -59,8 +69,8 @@ export const AppProvider = ({ children }) => {
                 localeState, setLocaleState,
                 onChangeLocale,
                 isLoading, setIsLoading,
-                getAppData,
-                appData, setAppData
+                myInfo, setMyInfo,
+                profile, setProfile
             }}
         >
             {children}

@@ -5,7 +5,7 @@ import { AppContext } from '../Contexts/AppContext';
 
 export default function MainPage() {
 
-	const { localeState, appData, isLoading } = useContext(AppContext)
+	const { localeState, myInfo, isLoading } = useContext(AppContext)
 
 	return (
 		<>
@@ -16,7 +16,7 @@ export default function MainPage() {
 						<Box
 							alt={'dev_img'}
 							component={'img'}
-							src={appData.user_img}
+							src={myInfo.user_img}
 							sx={{ boxShadow: 10 }}
 							width={{ xs: '35vh', md: '40vh' }}
 							height={{ xs: '35vh', md: '40vh' }}
@@ -30,7 +30,7 @@ export default function MainPage() {
 										fontSize: "3rem",
 									}
 								}}>
-									{appData[`first_name_${localeState}`]} {appData[`last_name_${localeState}`]}
+									{myInfo[`first_name_${localeState}`]} {myInfo[`last_name_${localeState}`]}
 								</h1>
 								<h2 style={{
 									fontSize: "1.25rem",
@@ -38,19 +38,19 @@ export default function MainPage() {
 										fontSize: "2rem",
 									}
 								}}>
-									{appData.position}.
+									{myInfo.position}.
 								</h2>
 							</Box>
 							<Box component={'ul'} p={'0.8rem'}>
 								{
-									appData.miniBio && appData.miniBio.map((item, index) => (
+									myInfo.miniBio && myInfo.miniBio.map((item, index) => (
 										<InfoList key={index} emoji={item.emoji} text={item[`text_${localeState}`]} />
 									))
 								}
 							</Box>
-							<Box display={'flex'} gap={'1.5rem'} justifyContent={'center'} fontSize={{ xs: '2rem', md: '2.5rem' }}>
+							<Box display={'flex'} gap={'1.5rem'} mt={"1.5rem"} justifyContent={'center'} fontSize={{ xs: '2rem', md: '2.5rem' }}>
 								{
-									appData.socials && appData.socials.map((item, index) => (
+									myInfo.socials && myInfo.socials.map((item, index) => (
 										<SocialList key={index} link={item.link} type={item.type} label={item.label} />
 									))
 								}

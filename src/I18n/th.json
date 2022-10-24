@@ -1,4 +1,17 @@
 {
     "language": "ภาษา",
-    "im": "ผมเป็น"
+    "im": "ผมเป็น",
+    "personal_info": "ข้อมูลส่วนตัว",
+    "name": "ชื่อ",
+    "nick_name": "ชื่อเล่น",
+    "gender": "เพศ",
+    "date_birth": "วันเกิด",
+    "age": "อายุ",
+    "years_old": "",
+    "nationality": "สัญชาติ",
+    "address": "ที่อยู่",
+    "edu": "การศึกษา",
+    "experience": "ประสบการณ์",
+    "skills": "ทักษะ",
+    "contact": "ช่องทางติดต่อ"
 }
