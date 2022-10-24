@@ -52,7 +52,7 @@ export const AppProvider = ({ children }) => {
                 querySnapshotProfile.forEach((doc) => {
                     const snapshotData = JSON.stringify(doc.data())
                     const snapshotParsed = JSON.parse(snapshotData)
-                    console.log("getProfile : ", snapshotParsed)
+                    // console.log("getProfile : ", snapshotParsed)
                     setProfile(snapshotParsed)
                 });
             }
