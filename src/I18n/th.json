@@ -1,5 +1,8 @@
 {
     "language": "ภาษา",
+    "about": "เกี่ยวกับ",
+    "close": "ปิด",
+    "about_this_web": "เกี่ยวกับเว็บไซต์นี้",
     "im": "ผมเป็น",
     "personal_info": "ข้อมูลส่วนตัว",
     "name": "ชื่อ",
@@ -13,5 +16,8 @@
     "edu": "การศึกษา",
     "experience": "ประสบการณ์",
     "skills": "ทักษะ",
-    "contact": "ช่องทางติดต่อ"
+    "contact": "ช่องทางติดต่อ",
+    "technology_used": "เทคโนโลยีที่ใช้",
+    "lasted_web_update": "อัพเดทเว็บไซต์ล่าสุด",
+    "lasted_database_update": "อัพเดทฐานข้อมูลล่าสุด"
 }

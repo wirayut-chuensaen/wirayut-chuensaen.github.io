@@ -1,5 +1,8 @@
 {
     "language": "Language",
+    "about": "About",
+    "close": "Close",
+    "about_this_web": "About this website",
     "im": "I'm",
     "personal_info": "Personal Information",
     "name": "Name",
@@ -13,5 +16,8 @@
     "edu": "Education",
     "experience": "Experience",
     "skills": "Skills",
-    "contact": "Contact"
+    "contact": "Contact",
+    "technology_used": "Technologies",
+    "lasted_web_update": "Latest website update",
+    "lasted_database_update": "Latest database update"
 }
