@@ -190,7 +190,7 @@ const NavigationBar = () => {
                             (!isLoading && Object.keys(aboutWeb).length > 0) &&
                             <Box flexDirection={"column"}>
                                 <Typography>{t("lasted_web_update")} : {aboutWeb[`web_update_${localeState}`]}</Typography>
-                                <Typography>{t("lasted_database_update")} : {aboutWeb[`web_update_${localeState}`]}</Typography>
+                                <Typography>{t("lasted_database_update")} : {aboutWeb[`database_update_${localeState}`]}</Typography>
                                 {
                                     (aboutWeb["technologies"] && aboutWeb["technologies"].length > 0) &&
                                     <Box flexDirection={"column"} sx={{ marginTop: 2 }}>

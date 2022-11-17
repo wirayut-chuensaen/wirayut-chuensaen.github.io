@@ -11,6 +11,7 @@ export const AppProvider = ({ children }) => {
     const [myInfo, setMyInfo] = useState({})
     const [profile, setProfile] = useState({})
     const [aboutWeb, setAboutWeb] = useState({})
+    const [projectList, setProjectList] = useState([])
 
     useEffect(() => {
         initLocale()
@@ -66,6 +67,15 @@ export const AppProvider = ({ children }) => {
                     setAboutWeb(snapshotParsed)
                 });
             }
+            const querySnapshotProjectList = await getDocs(collection(db, "projects"))
+            if (!querySnapshotProjectList.empty) {
+                querySnapshotProjectList.forEach((doc) => {
+                    const snapshotData = JSON.stringify(doc.data())
+                    const snapshotParsed = JSON.parse(snapshotData)
+                    // console.log("projects : ", snapshotParsed)
+                    setProjectList(snapshotParsed || [])
+                });
+            }
         } catch (e) {
             console.error("Error getMyInfo : ", e);
         } finally {
@@ -81,7 +91,8 @@ export const AppProvider = ({ children }) => {
                 isLoading, setIsLoading,
                 myInfo, setMyInfo,
                 profile, setProfile,
-                aboutWeb, setAboutWeb
+                aboutWeb, setAboutWeb,
+                projectList, setProjectList
             }}
         >
             {children}
