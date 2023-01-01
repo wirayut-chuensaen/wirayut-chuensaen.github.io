@@ -8,15 +8,13 @@ import { ProjectImagesSlider } from '../Components'
 export default function WorksDetailPage() {
 
 	const { state } = useLocation()
-	const location = useLocation()
 	const navigate = useNavigate()
 	const { t } = useTranslation();
 	const [workDetail, setWorkDetail] = useState({})
 	const { localeState } = useContext(AppContext)
 
 	useEffect(() => {
-		console.log("state : ", state)
-		console.log("location : ", location)
+		// console.log("state : ", state)
 		if (state) {
 			if (Object.keys(state).length > 0) {
 				setWorkDetail(state)
@@ -26,7 +24,7 @@ export default function WorksDetailPage() {
 		} else {
 			navigate("/WorksPage", { replace: true })
 		}
-	}, [navigate, state, location])
+	}, [navigate, state])
 
 	return (
 		<>
