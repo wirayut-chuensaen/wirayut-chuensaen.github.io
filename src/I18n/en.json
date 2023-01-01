@@ -19,5 +19,9 @@
     "contact": "Contact",
     "technology_used": "Technologies",
     "lasted_web_update": "Latest website update",
-    "lasted_database_update": "Latest database update"
+    "lasted_database_update": "Latest database update",
+    "features": "Features",
+    "screenshots": "Screenshots",
+    "detail": "Detail",
+    "download_url": "Download link"
 }

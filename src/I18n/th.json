@@ -19,5 +19,9 @@
     "contact": "ช่องทางติดต่อ",
     "technology_used": "เทคโนโลยีที่ใช้",
     "lasted_web_update": "อัพเดทเว็บไซต์ล่าสุด",
-    "lasted_database_update": "อัพเดทฐานข้อมูลล่าสุด"
+    "lasted_database_update": "อัพเดทฐานข้อมูลล่าสุด",
+    "features": "คุณสมบัติ",
+    "screenshots": "ภาพหน้าจอ",
+    "detail": "รายละเอียด",
+    "download_url": "ลิงค์ดาวน์โหลด"
 }

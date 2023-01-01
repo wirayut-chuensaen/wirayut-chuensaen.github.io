@@ -67,17 +67,17 @@ export const AppProvider = ({ children }) => {
                     setAboutWeb(snapshotParsed)
                 });
             }
-            const querySnapshotProjectList = await getDocs(collection(db, "projects"))
+            const querySnapshotProjectList = await getDocs(collection(db, "portfolio"))
             if (!querySnapshotProjectList.empty) {
                 querySnapshotProjectList.forEach((doc) => {
                     const snapshotData = JSON.stringify(doc.data())
                     const snapshotParsed = JSON.parse(snapshotData)
-                    // console.log("projects : ", snapshotParsed)
-                    setProjectList(snapshotParsed || [])
+                    // console.log("projects : ", snapshotParsed.data)
+                    setProjectList(snapshotParsed.data || [])
                 });
             }
         } catch (e) {
-            console.error("Error getMyInfo : ", e);
+            console.error("Error AppData : ", e);
         } finally {
             setTimeout(() => setIsLoading(false), 500)
         }
