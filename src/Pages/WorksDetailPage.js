@@ -15,7 +15,7 @@ export default function WorksDetailPage() {
 
 	useEffect(() => {
 		// console.log("state : ", state)
-		if (Object.keys(state).length > 0) {
+		if (state && Object.keys(state).length > 0) {
 			setWorkDetail(state)
 		} else {
 			navigate("/WorksPage", { replace: true })

@@ -21,7 +21,7 @@ export default function WorksPage() {
 						pl={{ xs: "5%", md: "10%" }} pr={{ xs: "5%", md: "10%" }}>
 						<Grid container display={'flex'} justifyContent={'center'} spacing={{ xs: 4, md: 6, lg: 10 }}>
 							{
-								projectList.map((item, index) => (
+								projectList && projectList.length > 0 && projectList.map((item, index) => (
 									<Grid item xs={12} md={6} key={index}>
 										<Card sx={{ boxShadow: 8 }}>
 											<CardActionArea onClick={() => onPushDetail(item)}>
