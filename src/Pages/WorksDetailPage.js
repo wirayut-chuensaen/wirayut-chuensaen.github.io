@@ -21,6 +21,8 @@ export default function WorksDetailPage() {
 			} else {
 				navigate("/WorksPage", { replace: true })
 			}
+		} else {
+			navigate("/WorksPage", { replace: true })
 		}
 	}, [navigate, state])
 
