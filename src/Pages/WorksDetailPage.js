@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { AppContext } from '../Contexts/AppContext'
 import { Box, Card, CardContent, Typography, Link } from '@mui/material'
@@ -8,21 +8,24 @@ import { ProjectImagesSlider } from '../Components'
 export default function WorksDetailPage() {
 
 	const { state } = useLocation()
+	const navigate = useNavigate()
 	const { t } = useTranslation();
 	const [workDetail, setWorkDetail] = useState({})
 	const { localeState } = useContext(AppContext)
 
 	useEffect(() => {
 		// console.log("state : ", state)
-		if (state) {
+		if (Object.keys(state).length > 0) {
 			setWorkDetail(state)
+		} else {
+			navigate("/WorksPage", { replace: true })
 		}
-	}, [state])
+	}, [navigate, state])
 
 	return (
 		<>
 			{
-				workDetail ?
+				Object.keys(workDetail).length > 0 ?
 					<Box component={'main'} display={'flex'} alignItems={'center'} justifyContent={'center'} sx={{ paddingTop: "2%", paddingBottom: "2%" }}
 						pl={{ xs: "5%", md: "10%" }} pr={{ xs: "5%", md: "10%" }}
 					>
