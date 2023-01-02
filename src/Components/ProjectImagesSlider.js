@@ -10,7 +10,7 @@ export default function ProjectImagesSlider({ data = [] }) {
         return (
             <div key={index}>
                 <img
-                    style={{ width: "100%" }}
+                    style={{ width: "100%", maxHeight: "70vh", objectFit: "contain" }}
                     src={item}
                     alt="img_slide"
                 />

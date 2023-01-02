@@ -14,7 +14,7 @@ export default function WorksDetailPage() {
 	const { localeState } = useContext(AppContext)
 
 	useEffect(() => {
-		// console.log("state : ", state)
+		console.log("state : ", state)
 		if (state) {
 			if (Object.keys(state).length > 0) {
 				setWorkDetail(state)
@@ -53,11 +53,22 @@ export default function WorksDetailPage() {
 									}
 									<Typography padding={'0.35rem'} fontWeight={"bold"}>{t("screenshots")}</Typography>
 									<ProjectImagesSlider data={workDetail["screenshots"] || []} />
-									<Box display={"flex"} flexDirection={{ xs: "column", md: "row" }} alignItems={{ xs: "flex-start", md: "center" }} sx={{ marginTop: 6 }}>
-										<Typography padding={'0.35rem'} fontWeight={"bold"}>{t("download_url")} : </Typography>
-										<Link href={workDetail["download_url"]} target="_blank" underline="none" >
-											<Typography padding={'0.35rem'}>{workDetail["project_version"]}</Typography>
-										</Link>
+									<Box display={"flex"} flexDirection="column" sx={{ marginTop: 6 }}>
+										{
+											workDetail["repo_url"] !== "" &&
+											<Box display={"flex"} flexDirection={{ xs: "column", md: "row" }} alignItems={{ xs: "flex-start", md: "center" }} >
+												<Typography padding={'0.35rem'} fontWeight={"bold"}>Repo : </Typography>
+												<Link href={workDetail["repo_url"]} target="_blank" underline="none" >
+													<Typography padding={'0.35rem'}>{workDetail["repo_url"]}</Typography>
+												</Link>
+											</Box>
+										}
+										<Box display={"flex"} flexDirection={{ xs: "column", md: "row" }} alignItems={{ xs: "flex-start", md: "center" }} >
+											<Typography padding={'0.35rem'} fontWeight={"bold"}>{t("download_url")} : </Typography>
+											<Link href={workDetail["download_url"]} target="_blank" underline="none" >
+												<Typography padding={'0.35rem'}>{workDetail["project_version"]}</Typography>
+											</Link>
+										</Box>
 									</Box>
 								</Box>
 							</CardContent>

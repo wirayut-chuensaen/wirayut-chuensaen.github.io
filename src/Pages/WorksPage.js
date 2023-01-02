@@ -25,7 +25,7 @@ export default function WorksPage() {
 									<Grid item xs={12} md={6} key={index}>
 										<Card sx={{ boxShadow: 8 }}>
 											<CardActionArea onClick={() => onPushDetail(item)}>
-												<CardMedia component={'img'} image={item.screenshots[0]} alt={'image_project'} />
+												<CardMedia component={'img'} image={item.screenshots[0]} alt={'image_project'} style={{  maxHeight: "50vh", objectFit: "contain" }} />
 												<CardContent>
 													<Typography variant='h5' sx={{ fontWeight: "bold" }}>{item[`name_${localeState}`]}</Typography>
 													<Typography>{item[`short_description_${localeState}`]}</Typography>
